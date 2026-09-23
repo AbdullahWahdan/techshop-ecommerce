@@ -1,4 +1,4 @@
-name: TechShop Enterprise CI/CD Pipeline
+name: TechShop Enterprise Multi-Stage CI/CD Pipeline
 
 on:
   push:
@@ -6,8 +6,16 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
+  # =========================================================================
+  # STAGE 1: Build & Unit / Integration Test Stage
+  # =========================================================================
   build-and-test:
+    name: "Stage 1: Build & Test"
     runs-on: ubuntu-latest
 
     steps:
@@ -19,26 +27,85 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
+          cache: 'maven'
 
-      - name: Build and Test Backend Microservices with Maven
+      - name: Build & Test Backend Microservices
         run: |
           cd backend
-          mvn clean test
+          mvn clean test -DfailIfNoTests=false
 
       - name: Set up Node.js for Frontend
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
 
-      - name: Build and Test Frontend
+      - name: Build & Verify Frontend Bundle
         run: |
           cd frontend
           npm ci
           npm run build
 
-      - name: Security Vulnerability Scan (Trivy)
+  # =========================================================================
+  # STAGE 2: Security & Vulnerability Scanning Stage (Trivy)
+  # =========================================================================
+  security-scan:
+    name: "Stage 2: Vulnerability Scan"
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Security Vulnerability Scan (Trivy FS Scan)
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
           ignore-unfixed: true
           format: 'table'
+          severity: 'CRITICAL,HIGH'
+
+  # =========================================================================
+  # STAGE 3: Multi-Stage Docker Build & Container Registry Stage
+  # =========================================================================
+  docker-build:
+    name: "Stage 3: Docker Build & Containerize"
+    needs: security-scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Product Service Image
+        run: |
+          docker build -t techshop/product-service:latest -f backend/product-service/Dockerfile backend/product-service
+
+      - name: Build API Gateway Image
+        run: |
+          docker build -t techshop/api-gateway:latest -f backend/api-gateway/Dockerfile backend/api-gateway
+
+      - name: Build Frontend React Image
+        run: |
+          docker build -t techshop/frontend:latest -f frontend/Dockerfile frontend
+
+  # =========================================================================
+  # STAGE 4: Kubernetes Deployment Validation Stage
+  # =========================================================================
+  deploy-k8s:
+    name: "Stage 4: Kubernetes Manifest Validation"
+    needs: docker-build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate Kubernetes Manifest Syntax
+        run: |
+          kubectl apply --dry-run=client -f k8s/techshop-deployments.yaml
