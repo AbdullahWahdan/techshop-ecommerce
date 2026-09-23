@@ -1,0 +1,5 @@
+E:\e-shop\backend\notification-service\src\main\java\com\techshop\notification\NotificationServiceApplication.java
+E:\e-shop\backend\notification-service\src\main\java\com\techshop\notification\infrastructure\web\NotificationController.java
+E:\e-shop\backend\notification-service\src\main\java\com\techshop\notification\domain\model\Notification.java
+E:\e-shop\backend\notification-service\src\main\java\com\techshop\notification\application\service\NotificationService.java
+E:\e-shop\backend\notification-service\src\main\java\com\techshop\notification\infrastructure\messaging\KafkaOrderConsumer.java

@@ -1,0 +1,6 @@
+com\techshop\notification\infrastructure\messaging\KafkaOrderConsumer.class
+com\techshop\notification\infrastructure\web\NotificationController.class
+com\techshop\notification\application\service\NotificationService.class
+com\techshop\notification\domain\model\Notification.class
+com\techshop\notification\domain\model\Notification$NotificationBuilder.class
+com\techshop\notification\NotificationServiceApplication.class

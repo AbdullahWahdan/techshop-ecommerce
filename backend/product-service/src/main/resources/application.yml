@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: product-service
+
+  # MongoDB Connection Settings (Strictly reads from environment variables)
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST:localhost}:${MONGO_PORT:27017}/product_db?authSource=admin
+
+    # Redis Connection Settings (Strictly reads from environment variables)
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD}
+      timeout: 2000ms
+
+  # Spring Cache Configuration
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000ms # 10 minutes cache TTL
+      cache-null-values: false
+
+# Actuator Health Metrics Endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always

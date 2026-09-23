@@ -1,0 +1,13 @@
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\domain\model\OrderStatus.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\OrderServiceApplication.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\domain\model\OrderEvent.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\application\service\OrderService.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\domain\repository\OrderRepository.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\infrastructure\web\dto\OrderResponse.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\infrastructure\web\OrderController.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\infrastructure\web\dto\OrderRequest.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\infrastructure\messaging\KafkaOrderProducer.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\domain\repository\OrderEventRepository.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\domain\model\Order.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\domain\model\OrderItem.java
+E:\e-shop\backend\order-service\src\main\java\com\techshop\order\infrastructure\web\dto\OrderItemRequest.java

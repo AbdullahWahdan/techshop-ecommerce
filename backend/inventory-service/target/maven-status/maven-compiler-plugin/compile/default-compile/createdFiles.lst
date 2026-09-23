@@ -1,0 +1,10 @@
+com\techshop\inventory\application\service\InventoryService.class
+com\techshop\inventory\domain\repository\InventoryRepository.class
+com\techshop\inventory\InventoryServiceApplication.class
+com\techshop\inventory\infrastructure\web\InventoryController.class
+com\techshop\inventory\infrastructure\web\dto\DeductStockRequest.class
+com\techshop\inventory\infrastructure\web\dto\InventoryRequest.class
+com\techshop\inventory\infrastructure\web\dto\InventoryResponse$InventoryResponseBuilder.class
+com\techshop\inventory\domain\model\Inventory$InventoryBuilder.class
+com\techshop\inventory\domain\model\Inventory.class
+com\techshop\inventory\infrastructure\web\dto\InventoryResponse.class

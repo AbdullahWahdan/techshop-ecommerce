@@ -1,0 +1,8 @@
+E:\e-shop\backend\product-service\src\main\java\com\techshop\product\application\service\ProductService.java
+E:\e-shop\backend\product-service\src\main\java\com\techshop\product\infrastructure\web\dto\ProductResponse.java
+E:\e-shop\backend\product-service\src\main\java\com\techshop\product\infrastructure\cache\RedisConfig.java
+E:\e-shop\backend\product-service\src\main\java\com\techshop\product\domain\repository\ProductRepository.java
+E:\e-shop\backend\product-service\src\main\java\com\techshop\product\ProductServiceApplication.java
+E:\e-shop\backend\product-service\src\main\java\com\techshop\product\infrastructure\web\dto\ProductRequest.java
+E:\e-shop\backend\product-service\src\main\java\com\techshop\product\domain\model\Product.java
+E:\e-shop\backend\product-service\src\main\java\com\techshop\product\infrastructure\web\ProductController.java

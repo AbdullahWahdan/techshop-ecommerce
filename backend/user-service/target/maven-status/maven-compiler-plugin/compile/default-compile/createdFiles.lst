@@ -1,0 +1,9 @@
+com\techshop\user\domain\model\User.class
+com\techshop\user\domain\model\User$UserBuilder.class
+com\techshop\user\application\service\UserService.class
+com\techshop\user\UserServiceApplication.class
+com\techshop\user\infrastructure\web\UserController.class
+com\techshop\user\domain\repository\UserRepository.class
+com\techshop\user\infrastructure\web\dto\UserRequest.class
+com\techshop\user\infrastructure\web\dto\UserResponse.class
+com\techshop\user\infrastructure\web\dto\UserResponse$UserResponseBuilder.class

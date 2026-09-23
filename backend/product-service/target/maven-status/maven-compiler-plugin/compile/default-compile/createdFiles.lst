@@ -1,0 +1,11 @@
+com\techshop\product\domain\model\Product.class
+com\techshop\product\domain\model\Product$ProductBuilder.class
+com\techshop\product\ProductServiceApplication.class
+com\techshop\product\infrastructure\web\dto\ProductResponse$ProductResponseBuilder.class
+com\techshop\product\infrastructure\cache\RedisConfig.class
+com\techshop\product\domain\repository\ProductRepository.class
+com\techshop\product\infrastructure\web\ProductController.class
+com\techshop\product\infrastructure\web\dto\ProductResponse.class
+com\techshop\product\infrastructure\web\dto\ProductRequest.class
+com\techshop\product\infrastructure\web\dto\ProductRequest$ProductRequestBuilder.class
+com\techshop\product\application\service\ProductService.class

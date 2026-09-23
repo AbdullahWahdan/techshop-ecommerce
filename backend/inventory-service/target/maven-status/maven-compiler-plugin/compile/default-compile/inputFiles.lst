@@ -1,0 +1,8 @@
+E:\e-shop\backend\inventory-service\src\main\java\com\techshop\inventory\application\service\InventoryService.java
+E:\e-shop\backend\inventory-service\src\main\java\com\techshop\inventory\infrastructure\web\InventoryController.java
+E:\e-shop\backend\inventory-service\src\main\java\com\techshop\inventory\infrastructure\web\dto\DeductStockRequest.java
+E:\e-shop\backend\inventory-service\src\main\java\com\techshop\inventory\domain\model\Inventory.java
+E:\e-shop\backend\inventory-service\src\main\java\com\techshop\inventory\domain\repository\InventoryRepository.java
+E:\e-shop\backend\inventory-service\src\main\java\com\techshop\inventory\infrastructure\web\dto\InventoryRequest.java
+E:\e-shop\backend\inventory-service\src\main\java\com\techshop\inventory\infrastructure\web\dto\InventoryResponse.java
+E:\e-shop\backend\inventory-service\src\main\java\com\techshop\inventory\InventoryServiceApplication.java
