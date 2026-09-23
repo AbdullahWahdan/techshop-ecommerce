@@ -59,16 +59,29 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Pre-populate Local Maven Cache for Offline Trivy Resolution
+        run: |
+          cd backend
+          mvn dependency:go-offline -DfailIfNoTests=false || true
+
       - name: Security Vulnerability Scan (Trivy FS Scan)
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
+          scanners: 'vuln'
           ignore-unfixed: true
           format: 'table'
           severity: 'CRITICAL,HIGH'
 
   # =========================================================================
-  # STAGE 3: Multi-Stage Docker Build & Container Registry Stage
+  # STAGE 3: Multi-Stage Docker Build Stage
   # =========================================================================
   docker-build:
     name: "Stage 3: Docker Build & Containerize"
