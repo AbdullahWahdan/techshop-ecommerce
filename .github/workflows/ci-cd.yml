@@ -97,11 +97,11 @@ jobs:
 
       - name: Build Product Service Image
         run: |
-          docker build -t techshop/product-service:latest -f backend/product-service/Dockerfile backend/product-service
+          docker build -t techshop/product-service:latest -f backend/product-service/Dockerfile backend
 
       - name: Build API Gateway Image
         run: |
-          docker build -t techshop/api-gateway:latest -f backend/api-gateway/Dockerfile backend/api-gateway
+          docker build -t techshop/api-gateway:latest -f backend/api-gateway/Dockerfile backend
 
       - name: Build Frontend React Image
         run: |
