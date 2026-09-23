@@ -2,8 +2,10 @@
 FROM maven:3.9.6-eclipse-temurin-21-alpine AS build
 WORKDIR /app
 COPY pom.xml ./pom.xml
+RUN mvn install -N
 COPY api-gateway ./api-gateway
-RUN mvn clean package -pl api-gateway -am -DskipTests
+WORKDIR /app/api-gateway
+RUN mvn clean package -DskipTests
 
 # Stage 2: Runtime
 FROM eclipse-temurin:21-jre-alpine

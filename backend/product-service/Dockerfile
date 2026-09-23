@@ -2,8 +2,10 @@
 FROM maven:3.9.6-eclipse-temurin-21-alpine AS build
 WORKDIR /app
 COPY pom.xml ./pom.xml
+RUN mvn install -N
 COPY product-service ./product-service
-RUN mvn clean package -pl product-service -am -DskipTests
+WORKDIR /app/product-service
+RUN mvn clean package -DskipTests
 
 # Stage 2: Minimal Production Runtime
 FROM eclipse-temurin:21-jre-alpine
