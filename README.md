@@ -4,8 +4,9 @@ TechShop is a full-stack, enterprise-grade microservices e-commerce platform des
 
 ---
 
-## Architecture Overview
 
+## Architecture Overview
+![Architecture Diagram](./microservices_architecture_diagram.png)
 ```
                                   +------------------------------------+
                                   |     React 18 + TypeScript UI       |
