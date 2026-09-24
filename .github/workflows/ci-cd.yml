@@ -119,6 +119,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Set up Kubernetes Cluster (Kind)
+        uses: helm/kind-action@v1.10.0
+
       - name: Validate Kubernetes Manifest Syntax
         run: |
-          kubectl apply --dry-run=client --validate=false -f k8s/techshop-deployments.yaml
+          kubectl apply --dry-run=client -f k8s/techshop-deployments.yaml
